@@ -1,3 +1,3 @@
-FROM nanthakps/auto-filter-bot
+FROM nanthakps/file-sharing-bot
 COPY . .
 CMD ["bash", "start.sh"]
