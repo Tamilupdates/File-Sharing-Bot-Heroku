@@ -1,11 +1,11 @@
 {
-    "name": "Auto Filter Bot",
-    "description": "Auto Filter Bot with Heroku Deploy",
+    "name": "File Sharing Bot",
+    "description": "File Sharing Bot with Heroku Deploy",
     "keywords": [
       "telegram"
     ],
     "stack": "container",
-    "repository": "https://github.com/Tamilupdates/Auto-Filter-Bot-Heroku",
+    "repository": "https://github.com/Tamilupdates/file-sharing-bot-Heroku",
     "env": {
         "CONFIG_FILE_URL": {
             "description": "Config File URL",
