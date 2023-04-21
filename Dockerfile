@@ -1,4 +1,4 @@
-FROM nanthakps/file-sharing-bot
+FROM python:3.8-slim-buster
 
 WORKDIR /app
 
