@@ -1,4 +1,5 @@
 from requests import get as rget
+import logging
 import os
 
 CONFIG_FILE_URL = os.environ.get('CONFIG_FILE_URL')
