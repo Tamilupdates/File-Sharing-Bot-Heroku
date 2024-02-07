@@ -1,21 +1,25 @@
 {
-    "name": "File Sharing Bot",
-    "description": "File Sharing Bot with Heroku Deploy",
-    "keywords": [
-      "telegram"
-    ],
-    "stack": "container",
-    "repository": "https://github.com/Tamilupdates/File-Sharing-Bot-Heroku",
-    "env": {
-        "CONFIG_FILE_URL": {
-            "description": "Config File URL",
-            "required": true
-        }
-    },
-    "formation": {
-    "worker": {
-      "quantity": 1,
-      "size": "Basic"
-    }
+  "name": "File Sharing Bot",
+  "description": "File Sharing Bot with Heroku Deploy",
+  "keywords": [
+    "telegram"
+  ],
+  "repository": "https://github.com/Tamilupdates/File-Sharing-Bot-Heroku",
+  "success_url": "/",
+  "website": "#",
+  "env": {
+      "CONFIG_FILE_URL": {
+          "description": "Config File URL",
+          "required": true
+      }
+  },
+  "buildpacks": [{
+      "url": "heroku/python"
+    }],
+  "formation": {
+      "web": {
+          "quantity": 1,
+          "size": "Basic"
+      }
   }
 }
