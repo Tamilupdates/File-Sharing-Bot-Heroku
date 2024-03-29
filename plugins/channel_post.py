@@ -24,7 +24,7 @@ async def channel_post(client: Client, message: Message):
     base64_string = await encode(string)
 
     try:
-        FINAL_URL is not None:
+        if FINAL_URL is not None:
             link = f"https://{FINAL_URL}?start={base64_string}"
     except:
         link = f"https://telegram.me/{client.username}?start={base64_string}"
@@ -45,7 +45,7 @@ async def new_post(client: Client, message: Message):
     string = f"get-{converted_id}"
     base64_string = await encode(string)
     try:
-        FINAL_URL is not None:
+        if FINAL_URL is not None:
             link = f"https://{FINAL_URL}?start={base64_string}"
     except:
         link = f"https://telegram.me/{client.username}?start={base64_string}"
