@@ -42,7 +42,6 @@ async def batch(client: Client, message: Message):
     except:
         link = f"https://telegram.me/{client.username}?start={base64_string}"
 
-    #link = f"https://telegram.me/{client.username}?start={base64_string}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://t.me/share/url?url={link}')]])
     await reply_text.edit(f"<b>Here is Link :\n<code>{link}</code></b>", reply_markup=reply_markup, disable_web_page_preview = True)
 
@@ -71,6 +70,5 @@ async def batch(client: Client, message: Message):
     except:
         link = f"https://telegram.me/{client.username}?start={base64_string}"
         
-    #link = f"https://telegram.me/{client.username}?start={base64_string}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://t.me/share/url?url={link}')]])
     await channel_message.reply_text(f"<b>Here is Link :\n<code>{link}</code></b>", quote=True, reply_markup=reply_markup)
