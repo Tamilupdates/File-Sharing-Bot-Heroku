@@ -23,8 +23,15 @@ async def channel_post(client: Client, message: Message):
     string = f"get-{converted_id}"
     base64_string = await encode(string)
 
-    link = f"https://telegram.me/{client.username}?start={base64_string}" if FINAL_URL is None or 'FINAL_URL' not in locals() else f"https://{FINAL_URL}?start={base64_string}"
+    try:
+        if FINAL_URL is not None:
+            link = f"https://{FINAL_URL}?start={base64_string}"
+        else:
+            link = f"https://telegram.me/{client.username}?start={base64_string}"
+    except KeyError:
+        link = f"https://telegram.me/{client.username}?start={base64_string}"
 
+    #link = f"https://telegram.me/{client.username}?start={base64_string}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://t.me/share/url?url={link}')]])
     await reply_text.edit(f"<b>Here is Link :\n<code>{link}</code></b>", reply_markup=reply_markup, disable_web_page_preview = True)
 
@@ -40,7 +47,14 @@ async def new_post(client: Client, message: Message):
     converted_id = message.id * abs(client.db_channel.id)
     string = f"get-{converted_id}"
     base64_string = await encode(string)
-    link = f"https://telegram.me/{client.username}?start={base64_string}" if FINAL_URL is None or 'FINAL_URL' not in locals() else f"https://{FINAL_URL}?start={base64_string}"
+    try:
+        if FINAL_URL is not None:
+            link = f"https://{FINAL_URL}?start={base64_string}"
+        else:
+            link = f"https://telegram.me/{client.username}?start={base64_string}"
+    except KeyError:
+        link = f"https://telegram.me/{client.username}?start={base64_string}"
+    #link = f"https://telegram.me/{client.username}?start={base64_string}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://t.me/share/url?url={link}')]])
     try:
         await message.edit_reply_markup(reply_markup)
