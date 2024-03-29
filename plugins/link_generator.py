@@ -36,7 +36,7 @@ async def batch(client: Client, message: Message):
 
     string = f"get-{f_msg_id * abs(client.db_channel.id)}-{s_msg_id * abs(client.db_channel.id)}"
     base64_string = await encode(string)
-    link = f"https://telegram.me/{client.username}?start={base64_string}"
+    link = f"https://telegram.me/{client_username}?start={base64_encoded}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_encoded}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://t.me/share/url?url={link}')]])
     await second_message.reply_text(f"<b>Here is your link</b>\n{link}", quote=True, reply_markup=reply_markup)
 
@@ -59,6 +59,6 @@ async def batch(client: Client, message: Message):
             continue
 
     base64_string = await encode(f"get-{msg_id * abs(client.db_channel.id)}")
-    link = f"https://telegram.me/{client.username}?start={base64_string}"
+    link = f"https://telegram.me/{client_username}?start={base64_encoded}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_encoded}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://t.me/share/url?url={link}')]])
     await channel_message.reply_text(f"<b>Here is your link</b>\n\n{link}", quote=True, reply_markup=reply_markup)
