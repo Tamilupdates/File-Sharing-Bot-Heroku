@@ -41,7 +41,7 @@ async def batch(client: Client, message: Message):
     file_size = msg.document.file_size if msg.document else ""
 
     FINAL_URL = None
-    link = f"https://telegram.me/{client_username}?start={base64_encoded}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_encoded}"
+    link = f"https://telegram.me/{client.username}?start={base64_encoded}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_encoded}"
     
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://t.me/share/url?url={link}')]])
     await reply_text.edit(f"<b>File Name: {file_name}\n\nFile Size: {file_size}\n\nHere is Link:</b><code>{link}</code>", reply_markup=reply_markup, disable_web_page_preview = True)
@@ -64,6 +64,6 @@ async def batch(client: Client, message: Message):
             continue
 
     base64_string = await encode(f"get-{msg_id * abs(client.db_channel.id)}")
-    link = f"https://telegram.me/{client_username}?start={base64_encoded}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_encoded}"
+    link = f"https://telegram.me/{client.username}?start={base64_encoded}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_encoded}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://t.me/share/url?url={link}')]])
     await channel_message.reply_text(f"<b>Here is your link</b>\n\n{link}", quote=True, reply_markup=reply_markup)
