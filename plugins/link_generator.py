@@ -37,11 +37,9 @@ async def batch(client: Client, message: Message):
     base64_string = await encode(string)
     
     try:
-        if FINAL_URL is not None:
+        FINAL_URL is not None:
             link = f"https://{FINAL_URL}?start={base64_string}"
-        else:
-            link = f"https://telegram.me/{client.username}?start={base64_string}"
-    except Exception as e:
+    except:
         link = f"https://telegram.me/{client.username}?start={base64_string}"
 
     #link = f"https://telegram.me/{client.username}?start={base64_string}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_string}"
@@ -68,11 +66,9 @@ async def batch(client: Client, message: Message):
     base64_string = await encode(f"get-{msg_id * abs(client.db_channel.id)}")
     
     try:
-        if FINAL_URL is not None:
+        FINAL_URL is not None:
             link = f"https://{FINAL_URL}?start={base64_string}"
-        else:
-            link = f"https://telegram.me/{client.username}?start={base64_string}"
-    except Exception as e:
+    except:
         link = f"https://telegram.me/{client.username}?start={base64_string}"
         
     #link = f"https://telegram.me/{client.username}?start={base64_string}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_string}"

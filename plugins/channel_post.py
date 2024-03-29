@@ -24,11 +24,9 @@ async def channel_post(client: Client, message: Message):
     base64_string = await encode(string)
 
     try:
-        if FINAL_URL is not None:
+        FINAL_URL is not None:
             link = f"https://{FINAL_URL}?start={base64_string}"
-        else:
-            link = f"https://telegram.me/{client.username}?start={base64_string}"
-    except Exception as e:
+    except:
         link = f"https://telegram.me/{client.username}?start={base64_string}"
 
     #link = f"https://telegram.me/{client.username}?start={base64_string}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_string}"
@@ -48,11 +46,9 @@ async def new_post(client: Client, message: Message):
     string = f"get-{converted_id}"
     base64_string = await encode(string)
     try:
-        if FINAL_URL is not None:
+        FINAL_URL is not None:
             link = f"https://{FINAL_URL}?start={base64_string}"
-        else:
-            link = f"https://telegram.me/{client.username}?start={base64_string}"
-    except Exception as e:
+    except:
         link = f"https://telegram.me/{client.username}?start={base64_string}"
     #link = f"https://telegram.me/{client.username}?start={base64_string}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://t.me/share/url?url={link}')]])
