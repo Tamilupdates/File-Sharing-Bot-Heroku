@@ -40,7 +40,6 @@ async def batch(client: Client, message: Message):
     file_name = msg.document.file_name if msg.document else ""
     file_size = msg.document.file_size if msg.document else ""
 
-    FINAL_URL = None
     link = f"https://telegram.me/{client.username}?start={base64_string}" if FINAL_URL is None or not FINAL_URL else f"https://{FINAL_URL}?start={base64_string}"
     
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://t.me/share/url?url={link}')]])
