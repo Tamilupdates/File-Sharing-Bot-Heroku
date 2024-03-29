@@ -22,7 +22,7 @@ async def channel_post(client: Client, message: Message):
     converted_id = post_message.id * abs(client.db_channel.id)
     string = f"get-{converted_id}"
     base64_string = await encode(string)
-
+ 
     try:
         if FINAL_URL is not None:
             link = f"https://{FINAL_URL}?start={base64_string}"
