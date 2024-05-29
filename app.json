@@ -5,8 +5,6 @@
     "telegram"
   ],
   "repository": "https://github.com/Tamilupdates/File-Sharing-Bot-Heroku",
-  "success_url": "/",
-  "website": "#",
   "env": {
       "CONFIG_FILE_URL": {
           "description": "Config File URL",
@@ -19,7 +17,7 @@
   "formation": {
       "worker": {
           "quantity": 1,
-          "size": "Standard-2x"
+          "size": "basic"
       }
   }
 }
